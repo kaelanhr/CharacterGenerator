@@ -1,0 +1,14 @@
+﻿Lazy
+Brave
+Stupid
+Foolish
+Angry
+Happy
+Sad
+Depressed
+Worried
+Anxious
+Concerned
+
+Intelligent
+	Smart

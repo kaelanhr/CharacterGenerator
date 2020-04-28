@@ -1,0 +1,338 @@
+﻿[
+	{
+		"Name": "Engineer",
+		"Specialty": [
+			"Software",
+			"Mechanical",
+			"Chemical",
+			"Medical",
+			"BioChemical",
+			"Nuclear"
+		]
+	},
+	{
+		"Name": "Lawyer",
+		"Specialty": [
+			"Criminal",
+			"Civil"
+		]
+	},
+	{
+		"Name": "Farmer",
+		"Specialty": [
+			"Peach",
+			"Apples",
+			"Bannanas",
+			"Nuts"
+		]
+	},
+	{
+		"Name": "Journalist",
+		"Specialty": [
+			"News Anchor",
+			"Weather",
+			"Field Journalist",
+			"Articles/Newspaper",
+			"Editor"
+		]
+	},
+	{
+		"Name": "Actor",
+		"Specialty": [
+			"Theatre",
+			"TV",
+			"Movie",
+			"Extra"
+		]
+	},
+	{
+		"Name": "Designer",
+		"Specialty": [
+			"Graphic Designer",
+			"Web Designer",
+			"Architect"
+		]
+	},
+	{
+		"Name": "Tradesman",
+		"Specialty": [
+			"Bricklayer",
+			"Driller",
+			"Manager"
+		]
+	},
+	{
+		"Name": "Cooking",
+		"Specialty": [
+			"Cook",
+			"Chef",
+			"Sous Chef"
+		]
+	},
+	{
+		"Name": "Driver",
+		"Specialty": [
+			"Taxi",
+			"Truck"
+		]
+	},
+	{
+		"Name": "Teaching",
+		"Specialty": [
+			"Tutor",
+			"Math",
+			"English",
+			"Science",
+			"PE",
+			"History",
+			"Philosophy"
+		]
+	},
+	{
+		"Name": "Business",
+		"Specialty": [
+			"Assistant",
+			"Human resources",
+			"Marketing",
+			"Accountant"
+		]
+	},
+	{
+		"Name": "Sanitation",
+		"Specialty": [
+			"Janitor",
+			"Garbage Collector"
+		]
+	},
+	{
+		"Name": "Public Transport",
+		"Specialty": [
+			"Bus",
+			"Train"
+		]
+	},
+	{
+		"Name": "Government",
+		"Specialty": [
+			"Clerk",
+			"Data Entry",
+			"Tax Collector",
+			"Child Care Worker",
+			"Minister?"
+		]
+	},
+	{
+		"Name": "Politician",
+		"Specialty": [
+			"Mayor",
+			"Senator"
+		]
+	},
+	{
+		"Name": "Law",
+		"Specialty": [
+			"Lawyer",
+			"Judge"
+		]
+	},
+	{
+		"Name": "Law Enforcement",
+		"Specialty": [
+			"Police",
+			"traffic",
+			"street",
+			"detective",
+			"organised crime",
+			"drugs",
+			"Federal Agent"
+		]
+	},
+	{
+		"Name": "Army",
+		"Specialty": [
+			"Logistics",
+			"Artillery",
+			"Tanks",
+			"Infantry",
+			"Homeland"
+		],
+		"Rank": [
+			"General",
+			"Private",
+			"Colonel",
+			"Major",
+			"Captain"
+		]
+	},
+	{
+		"Name": "Navy",
+		"Specialty": [
+			"Homeland",
+			"Fleet"
+		],
+		"Rank": [
+			"Admiral",
+			"Captain",
+			"Crewman"
+		]
+	},
+	{
+		"Name": "Air Force",
+		"Specialty": [
+			"General"
+		]
+	},
+	{
+		"Name": "Hospitality",
+		"Specialty": [
+			"Restauruant Owner",
+			"Restauraunt Manager",
+			"Vallet",
+			"Waiter",
+			"Concierge"
+		]
+	},
+	{
+		"Name": "Emergency Service",
+		"Specialty": [
+			"Firefighter",
+			"Fire and Rescue",
+			"Paramedic"
+		]
+	},
+	{
+		"Name": "Scientist",
+		"Specialty": [
+			"Theoretical Physics"
+		]
+	},
+	{
+		"Name": "Medicine",
+		"Specialty": [
+			"Anaesthesiologist",
+			"Emergency",
+			"Optometrist",
+			"Therapist",
+			"Psychologist",
+			"Coroner",
+			"Dentist",
+			"Obstortition",
+			"Surgeon",
+			"Veterinarian"
+		]
+	},
+	{
+		"Name": "Technology",
+		"Specialty": [
+			"IT Support",
+			"Web Developer",
+			"DevOps"
+		]
+	},
+	{
+		"Name": "Utility",
+		"Specialty": [
+			"Electrician",
+			"Plumber"
+		]
+	},
+	{
+		"Name": "Mercenary",
+		"Speialty": [
+			"Bounty Hunter",
+			"Private Millitary Contractor",
+			"Assasin",
+			"Hitman"
+		]
+	},
+	{
+		"Name": "Misc",
+		"Specialty": [
+			"Writer",
+			"Fisherman",
+			"Carpenter",
+			"Geneticist",
+			"Geologist",
+			"Real-estate agent",
+			"Guidance Counselor",
+			"Mail Man",
+			"Health Trainer",
+			"Unemployed",
+			"Jeweller",
+			"Flight attendant",
+			"florist",
+			"Translator",
+			"Funeral Attendent",
+			"Security Guard",
+			"Miner",
+			"Astronaught",
+			"Park Ranger",
+			"Tailor",
+			"Telemarketer",
+			"travel guide",
+			"Photographer",
+			"Potter",
+			"Archaeologist",
+			"Artist",
+			"Athlete",
+			"Bartender",
+			"Barber",
+			"Baker",
+			"Nurse",
+			"Producer",
+			"QA",
+			"Stripper",
+			"Chemist",
+			"Biologist",
+			"Marine"
+		]
+	},
+	{
+		"Name": "Performing Arts",
+		"Specialty": [
+			"Dancer",
+			"Singer"
+		]
+	},
+	{
+		"Name": "Music",
+		"Specialty": [
+			"Band",
+			"Drummer",
+			"Guitar",
+			"Composer",
+			"Sound Programmer"
+		]
+	},
+	{
+		"Name": "Movie",
+		"Specialty": [
+			"Director",
+			"Camera man",
+			"Producer"
+		]
+	},
+	{
+		"Name": "Retail",
+		"Specialty": [
+			"Worker",
+			"Manager"
+		]
+	},
+	{
+		"Name": "Pilot",
+		"Specialty": [
+			"Helecopter",
+			"Planes"
+		]
+	},
+	{
+		"Name": "Salesman",
+		"Specialty": [
+			"boats",
+			"cars",
+			"Sales rep",
+			"manager"
+		]
+	}
+]
