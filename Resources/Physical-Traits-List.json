@@ -1,0 +1,72 @@
+﻿[
+	{
+		"Attribute": "Hair",
+		"Types": [
+			"long",
+			"short,",
+			"shoulder length",
+			"bald"
+		]
+	},
+	{
+		"Attribute": "Hair Color",
+		"Types": [
+			"ginger",
+			"brown",
+			"black",
+			"blonde"
+		]
+	},
+	{
+		"Attribute": "Eye Color",
+		"Types": [
+			"blue",
+			"green",
+			"brown",
+			"hazel"
+		]
+	},
+	{
+		"Attribute": "Body type",
+		"Types": [
+			"slim",
+			"skiny",
+			"muscular",
+			"built",
+			"average",
+			"overweight",
+			"fat"
+		]
+	},
+	{
+		"Attribute": "Scars",
+		"Types": [
+			"eye",
+			"hands",
+			"face",
+			"leg",
+			"arm",
+			"chest",
+			"mental"
+		]
+	},
+	{
+		"Attribute": "Major Injuries",
+		"Types": [
+			"Legs",
+			"Eye/eyes",
+			"Arms",
+			"Ears",
+			"Touch",
+			"Head"
+		]
+	},
+	{
+		"Attribute": "Height",
+		"Types": [
+			"average",
+			"tall",
+			"short"
+		]
+	}
+]

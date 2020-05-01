@@ -11,6 +11,12 @@ namespace CharacterGenerator
 			Console.WriteLine($"Role: {a.PrimaryOccupation["Role"]}");
 			Console.WriteLine($"Specialty: {a.PrimaryOccupation["Specialty"]}");
 			Console.WriteLine($"Rank: {a.PrimaryOccupation["Rank"]}");
+			Console.WriteLine("Physical Traits:");
+
+			foreach (var item in a.PhysicalTraits)
+			{
+				Console.WriteLine($"{item.Key}: {item.Value}");
+			}
 		}
 	}
 }

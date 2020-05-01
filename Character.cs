@@ -20,19 +20,15 @@ namespace CharacterGenerator
 
 		public Dictionary<string, string> PhysicalTraits { get; private set; }
 
-		public static string[] GetLastNamesList()
-		{
-			return File.ReadAllLines("Resources/Last-Name-List.txt");
-		}
+		public static string[] GetLastNamesList() => File.ReadAllLines("Resources/Last-Name-List.txt");
+		public static string[] GetFirstNamesList() => File.ReadAllLines("Resources/First-Name-List.txt");
 
-		public static string[] GetFirstNamesList()
-		{
-			return File.ReadAllLines("Resources/First-Name-List.txt");
-		}
+		public static JArray GetJobs() => ReadJArrayFromFile("Resources/Jobs-List.json");
+		public static JArray GetPhysicalTraits() => ReadJArrayFromFile("Resources/Physical-Traits-List.json");
 
-		public static JArray GetJobs()
+		private static JArray ReadJArrayFromFile(string filePath)
 		{
-			using StreamReader r = new StreamReader("Resources/Jobs-List.json");
+			using StreamReader r = new StreamReader(filePath);
 			string json = r.ReadToEnd();
 			return JsonConvert.DeserializeObject<JArray>(json);
 		}
@@ -44,6 +40,7 @@ namespace CharacterGenerator
 			FirstName = GetFirstNamesList()[random.Next(0, GetFirstNamesList().Length)];
 			LastName = GetLastNamesList()[random.Next(0, GetLastNamesList().Length)];
 			PrimaryOccupation = SelectRandomJob();
+			PhysicalTraits = SelectPhysicalTraits();
 		}
 
 		private Dictionary<string, string> SelectRandomJob()
@@ -52,23 +49,34 @@ namespace CharacterGenerator
 			var job = random.Next(0, GetJobs().Count);
 
 			// randomly select a Specialty
-			var specialty = (string[]) GetJobs()[job]["Specialty"].ToObject(typeof(string[]));
+			var specialty = GetJobs()[job]["Specialty"].ToObject<JArray>();
 
 			var rankString = "N/A";
-			try
+
+			if (GetJobs()[job]["Rank"] != null)
 			{
-				// randomly select a rank if applicable
-				var rank = (string[])GetJobs()[job]["Rank"].ToObject(typeof(string[]));
-				rankString += $"{rank[random.Next(0, rank.Length)]}";
+				var rank = GetJobs()[job]["Rank"].ToObject<JArray>();
+				rankString = $"{rank[random.Next(0, rank.Count)]}";
 			}
-			catch (NullReferenceException) { }
 
 			return new Dictionary<string, string>
 			{
 				{ "Role", GetJobs()[job]["Role"].ToString() },
-				{"Specialty", specialty[random.Next(0, specialty.Length)] },
+				{"Specialty", specialty[random.Next(0, specialty.Count)].ToString() },
 				{"Rank", rankString }
 			};
+		}
+
+		private Dictionary<string, string> SelectPhysicalTraits()
+		{
+			var traitDictionary = new Dictionary<string, string>();
+			foreach(var trait in GetPhysicalTraits())
+			{
+				var traitList = trait["Types"].ToObject<JArray>();
+				traitDictionary.Add(trait["Attribute"].ToString(), trait["Types"][random.Next(0, traitList.Count)].ToString());
+			}
+
+			return traitDictionary;
 		}
 	}
 }
