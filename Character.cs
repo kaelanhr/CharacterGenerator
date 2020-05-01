@@ -15,7 +15,7 @@ namespace CharacterGenerator
 		public string[] Flaws { get; private set; }
 		public string[] Strengths { get; private set; }
 
-		public string PrimaryOccupation { get; private set; }
+		public Dictionary<string,string> PrimaryOccupation { get; private set; }
 		public string SecondaryOccupation { get; private set; }
 
 		public Dictionary<string, string> PhysicalTraits { get; private set; }
@@ -32,12 +32,9 @@ namespace CharacterGenerator
 
 		public static JArray GetJobs()
 		{
-
-			using (StreamReader r = new StreamReader("Resources/Jobs-List.json"))
-			{
-				string json = r.ReadToEnd();
-				return JsonConvert.DeserializeObject<JArray>(json);
-			}
+			using StreamReader r = new StreamReader("Resources/Jobs-List.json");
+			string json = r.ReadToEnd();
+			return JsonConvert.DeserializeObject<JArray>(json);
 		}
 
 		private static readonly Random random = new Random();
@@ -49,7 +46,7 @@ namespace CharacterGenerator
 			PrimaryOccupation = SelectRandomJob();
 		}
 
-		private string SelectRandomJob()
+		private Dictionary<string, string> SelectRandomJob()
 		{
 			// randomly select a job
 			var job = random.Next(0, GetJobs().Count);
@@ -57,17 +54,21 @@ namespace CharacterGenerator
 			// randomly select a Specialty
 			var specialty = (string[]) GetJobs()[job]["Specialty"].ToObject(typeof(string[]));
 
-			var rankString = "\nRank: ";
+			var rankString = "N/A";
 			try
 			{
 				// randomly select a rank if applicable
 				var rank = (string[])GetJobs()[job]["Rank"].ToObject(typeof(string[]));
 				rankString += $"{rank[random.Next(0, rank.Length)]}";
-			} catch (NullReferenceException e)
-			{
-				rankString += "N/A";
 			}
-			return $"Occupation: {GetJobs()[job]["Name"]}\nSpecialty: {specialty[random.Next(0, specialty.Length)]}{rankString}";
+			catch (NullReferenceException) { }
+
+			return new Dictionary<string, string>
+			{
+				{ "Role", GetJobs()[job]["Role"].ToString() },
+				{"Specialty", specialty[random.Next(0, specialty.Length)] },
+				{"Rank", rankString }
+			};
 		}
 	}
 }

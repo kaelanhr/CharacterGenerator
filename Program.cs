@@ -8,7 +8,9 @@ namespace CharacterGenerator
 		{
 			var a = new Character();
 			Console.WriteLine($"{a.FirstName} {a.LastName}");
-			Console.WriteLine($"{a.PrimaryOccupation}");
+			Console.WriteLine($"Role: {a.PrimaryOccupation["Role"]}");
+			Console.WriteLine($"Specialty: {a.PrimaryOccupation["Specialty"]}");
+			Console.WriteLine($"Rank: {a.PrimaryOccupation["Rank"]}");
 		}
 	}
 }
