@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CharacterGenerator
 {
@@ -56,13 +57,13 @@ namespace CharacterGenerator
 			if (GetJobs()[job]["Rank"] != null)
 			{
 				var rank = GetJobs()[job]["Rank"].ToObject<JArray>();
-				rankString = $"{rank[random.Next(0, rank.Count)]}";
+				rankString = GetRandomItem<JArray, JToken>(rank);
 			}
 
 			return new Dictionary<string, string>
 			{
 				{ "Role", GetJobs()[job]["Role"].ToString() },
-				{"Specialty", specialty[random.Next(0, specialty.Count)].ToString() },
+				{"Specialty", GetRandomItem<JArray, JToken>(specialty) },
 				{"Rank", rankString }
 			};
 		}
@@ -73,10 +74,15 @@ namespace CharacterGenerator
 			foreach(var trait in GetPhysicalTraits())
 			{
 				var traitList = trait["Types"].ToObject<JArray>();
-				traitDictionary.Add(trait["Attribute"].ToString(), trait["Types"][random.Next(0, traitList.Count)].ToString());
+				traitDictionary.Add(trait["Attribute"].ToString(), GetRandomItem<JArray, JToken>(traitList));
 			}
-
 			return traitDictionary;
+		}
+
+		private static string GetRandomItem<T, Y>(T collection) where T : ICollection<Y>
+		{
+			var index = random.Next(0, collection.Count);
+			return collection.ElementAt(index).ToString();
 		}
 	}
 }
