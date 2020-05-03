@@ -59,7 +59,8 @@
 			"Ears",
 			"Touch",
 			"Head"
-		]
+		],
+		"Chance":  10
 	},
 	{
 		"Attribute": "Height",

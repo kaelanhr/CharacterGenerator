@@ -47,23 +47,16 @@ namespace CharacterGenerator
 		private Dictionary<string, string> SelectRandomJob()
 		{
 			// randomly select a job
-			var job = random.Next(0, GetJobs().Count);
+			var job = GetJobs()[random.Next(0, GetJobs().Count)];
+			var specialty = job["Specialty"].ToObject<string[]>();
+			var rank = job["Rank"]?.ToObject<string[]>();
 
-			// randomly select a Specialty
-			var specialty = GetJobs()[job]["Specialty"].ToObject<JArray>();
-
-			var rankString = "N/A";
-
-			if (GetJobs()[job]["Rank"] != null)
-			{
-				var rank = GetJobs()[job]["Rank"].ToObject<JArray>();
-				rankString = GetRandomItem<JArray, JToken>(rank);
-			}
+			var rankString = rank != null ? GetRandomItem(rank) : "N/A";
 
 			return new Dictionary<string, string>
 			{
-				{ "Role", GetJobs()[job]["Role"].ToString() },
-				{"Specialty", GetRandomItem<JArray, JToken>(specialty) },
+				{ "Role", job["Role"].ToString() },
+				{"Specialty", GetRandomItem(specialty) },
 				{"Rank", rankString }
 			};
 		}
@@ -73,16 +66,26 @@ namespace CharacterGenerator
 			var traitDictionary = new Dictionary<string, string>();
 			foreach(var trait in GetPhysicalTraits())
 			{
-				var traitList = trait["Types"].ToObject<JArray>();
-				traitDictionary.Add(trait["Attribute"].ToString(), GetRandomItem<JArray, JToken>(traitList));
+				var traitList = trait["Types"].ToObject<string[]>();
+
+				// if there is a chance and the role fails it will not show up in the physcal traits lsit
+				if(trait["Chance"] != null)
+				{
+					var roll = random.Next(0, 100);
+					if (roll > trait["Chance"].ToObject<int>())
+					{
+						continue;
+					}
+				}
+				traitDictionary.Add(trait["Attribute"].ToString(), GetRandomItem(traitList));
 			}
 			return traitDictionary;
 		}
 
-		private static string GetRandomItem<T, Y>(T collection) where T : ICollection<Y>
+		private static string GetRandomItem(string[] collection)
 		{
-			var index = random.Next(0, collection.Count);
-			return collection.ElementAt(index).ToString();
+			var index = random.Next(0, collection.Length);
+			return collection[index];
 		}
 	}
 }
