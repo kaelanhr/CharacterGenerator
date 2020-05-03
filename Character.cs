@@ -68,7 +68,7 @@ namespace CharacterGenerator
 			{
 				var traitList = trait["Types"].ToObject<string[]>();
 
-				// if there is a chance and the role fails it will not show up in the physcal traits lsit
+				// if there is a chance and the role fails it will not show up in the physical traits list
 				if(trait["Chance"] != null)
 				{
 					var roll = random.Next(0, 100);
